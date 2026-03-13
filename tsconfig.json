@@ -1,0 +1,23 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "types": [
+      "./worker-configuration.d.ts",
+      "node"
+    ],
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ]
+    }
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "./worker-configuration.d.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Webcore Astro Integration" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <title>Webcore Astro Integration</title>
+  </head>
+  <slot />
+</html>
+
+<style lang="scss" is:global>
+  @use "webcoreui/styles" as *;
+  @include setup(
+    (
+      fontRegular: "/fonts/Inter-Regular.woff2",
+      fontBold: "/fonts/Inter-Bold.woff2",
+      theme: "light",
+    )
+  );
+</style>

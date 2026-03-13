@@ -1,0 +1,755 @@
+---
+import { Button, Icon } from "webcoreui/astro";
+import Layout from "@components/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+  <style data-purpose="custom-styling">
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: #333;
+    }
+
+    /* Custom scrollbar for better aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e6005c;
+      border-radius: 10px;
+    }
+
+    /* Animation for hover effects */
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+
+    .nav-link-active {
+      border-bottom: 2px solid #e6005c;
+      color: #e6005c;
+    }
+  </style>
+  <body class="bg-white">
+    <!-- BEGIN: TopHeader -->
+    <header
+      class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm"
+    >
+      <!-- Utility Nav -->
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between gap-4"
+      >
+        <!-- Logo -->
+        <div class="shrink-0">
+          <a class="flex items-center" href="#">
+            <span class="text-2xl font-bold text-primary"
+              >distrito<span class="text-black">moda</span></span
+            >
+          </a>
+        </div>
+        <!-- Search Bar -->
+        <div class="grow max-w-2xl hidden md:block">
+          <form class="relative group">
+            <input
+              class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all"
+              placeholder="Buscar producto o tienda..."
+              type="text"
+            />
+            <button
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-primary"
+              type="submit"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+        <!-- User Actions -->
+        <div class="flex items-center space-x-4">
+          <div class="hidden lg:flex items-center space-x-2">
+            <button
+              class="bg-primary text-white px-4 py-1.5 rounded text-sm font-semibold hover:bg-opacity-90 transition-all uppercase"
+              >Iniciar Sesión</button
+            >
+            <button
+              class="border border-primary text-primary px-4 py-1.5 rounded text-sm font-semibold hover:bg-primary hover:text-white transition-all uppercase"
+              >Registrate</button
+            >
+          </div>
+          <div class="flex items-center space-x-3 text-gray-600">
+            <button class="hover:text-primary transition-colors">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
+            </button>
+            <button class="hover:text-primary transition-colors">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
+            </button>
+            <button class="relative hover:text-primary transition-colors">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
+              <span
+                class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center"
+                >0</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Main Navigation -->
+      <nav class="bg-white border-t border-gray-100 hidden sm:block">
+        <div class="container mx-auto px-4">
+          <ul
+            class="flex items-center space-x-6 overflow-x-auto no-scrollbar py-2 text-sm font-medium uppercase text-gray-600 whitespace-nowrap"
+          >
+            <li><a class="nav-link-active pb-2" href="#">Inicio</a></li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Ingresos</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Ofertas</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Mujer</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Hombre</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Infantil</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Accesorios</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Calzados</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors pb-2" href="#"
+                >Tiendas</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-primary transition-colors pb-2 text-primary font-bold"
+                href="#">Tendencias</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- END: TopHeader -->
+    <main>
+      <!-- BEGIN: HeroSection -->
+      <section class="relative bg-[#d3d9ce] h-125 lg:h-150 overflow-hidden">
+        <!-- Background Text Elements (from reference image) -->
+        <div
+          class="absolute inset-0 flex flex-col justify-center select-none pointer-events-none px-8 opacity-20"
+        >
+          <span class="text-[120px] font-bold leading-tight uppercase"
+            >Nueva</span
+          >
+          <span class="text-[120px] font-bold leading-tight uppercase"
+            >Temporada</span
+          >
+        </div>
+        <div
+          class="container mx-auto h-full px-4 flex flex-col lg:flex-row items-center justify-center relative"
+        >
+          <!-- Hero Image (Woman in sweater) -->
+          <div class="lg:w-1/2 h-full flex items-end justify-center pt-10">
+            <img
+              alt="Fashion Hero"
+              class="h-[90%] object-contain drop-shadow-2xl"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyOaBRDL29RRM1qwyf1sER9gbdt0HxmvSXSXO6K4o48dNr1HRPCYa-Miw5NeZ8elKXpVm4E_v9T0pOT5xDCog-GVjhtgY3hWwPgsOLN6nQAQ9DhnzT27F4JDO8W1d9_6EtltzVyBgiubHvMoP5LTMDlOEqeFje5wOQ1k6hKWosLecZlULk1oUlfGplUfrNOaN8tHoDT_itEDiQ-Zjq9V0EOlxMyedJ5MxfQWFD_O2orV13AJPbwTFigA7vih4RdK3GkxR2wU23Iws"
+            />
+          </div>
+          <!-- Hero Content -->
+          <div class="lg:w-1/2 text-center lg:text-left z-10 py-8 lg:py-0">
+            <h2
+              class="text-4xl lg:text-8xl font-black italic text-black leading-none mb-2"
+            >
+              FW'26
+            </h2>
+            <h3
+              class="text-3xl lg:text-5xl font-bold uppercase tracking-widest text-black mb-8"
+            >
+              OTOÑO/INVIERNO
+            </h3>
+            <div
+              class="flex flex-col sm:flex-row items-center gap-4 lg:justify-start"
+            >
+              <a
+                class="bg-white text-black px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2"
+                href="#"
+              >
+                Ver ingresos
+              </a>
+            </div>
+          </div>
+          <!-- Carousel Indicators -->
+          <div
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2"
+          >
+            <div class="w-2.5 h-2.5 rounded-full bg-black"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
+          </div>
+        </div>
+        <!-- Arrow Navigation -->
+        <button
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white transition-all hidden md:block"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15 19l-7-7 7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
+        </button>
+        <button
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white transition-all hidden md:block"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"></path>
+          </svg>
+        </button>
+      </section>
+      <!-- END: HeroSection -->
+      <!-- BEGIN: PromoBanners -->
+      <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <h4 class="text-xl font-bold mb-6 text-gray-800">Novedades</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Banner 1: Rebajados -->
+            <div
+              class="bg-[#fdf3f3] p-6 rounded-lg border border-pink-100 flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
+            >
+              <h5 class="text-3xl font-serif text-[#1e3a5f] font-bold">
+                Findes
+              </h5>
+              <p class="uppercase tracking-widest font-bold text-[#1e3a5f]">
+                REBAJADOS
+              </p>
+              <p class="mt-4 text-primary font-medium">
+                Montos Mínimos Rebajados
+              </p>
+            </div>
+            <!-- Banner 2: FW26 -->
+            <div
+              class="bg-[#e2e8df] p-6 rounded-lg flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
+            >
+              <h5 class="text-5xl font-black italic mb-2">FW'26</h5>
+              <p class="uppercase font-bold tracking-tight">OTOÑO/INVIERNO</p>
+            </div>
+            <!-- Banner 3: Precios Bajos -->
+            <div
+              class="relative overflow-hidden bg-white p-6 rounded-lg border-2 border-primary/20 flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
+            >
+              <div class="absolute inset-0 bg-blue-50/30 z-0"></div>
+              <p class="relative z-10 text-gray-700 font-medium">
+                Aprovechá los precios más baratos <span class="font-bold"
+                  >solo disponibles en</span
+                >
+              </p>
+              <span class="relative z-10 text-xl font-bold text-primary"
+                >distrito<span class="text-black">moda</span></span
+              >
+              <div
+                class="mt-4 bg-primary text-white text-[10px] px-2 py-1 rounded uppercase font-bold relative z-10"
+              >
+                precio exclusivo dm
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: PromoBanners -->
+      <!-- BEGIN: ProductGrid -->
+      <section class="py-12">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between mb-8">
+            <h4 class="text-xl font-bold text-gray-800">Tiendas destacadas</h4>
+            <a
+              class="text-primary font-semibold flex items-center hover:underline"
+              href="#"
+            >
+              Ver más
+              <svg
+                class="h-4 w-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+            <!-- Product Card 1 -->
+            <div
+              class="product-card group bg-white overflow-hidden flex flex-col"
+            >
+              <div
+                class="relative aspect-3/4 overflow-hidden bg-gray-100 rounded-lg"
+              >
+                <img
+                  alt="Campera Importada"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_wB3uTr1OD1kb8nH88mkqtzWkoX5PuBVwRlCHavPvcOHjZ_5Iu0IXgZCtR-894D8YPQB-r_GXC7wL4n-Djlvjj0-AKIfQtOmJYBN_Ui625noqM0DxUf17hCnnjYolNOP4qaAKXUHBzJX4jZ2GU-VT6ndC8kZilvmdbT69Z4px1d23s8IHNYI80QXebSTwDqsKSKU5HcrKzS36d-CyItcsanXezdPQLA3kAED0bIGcrDXQpEBWyKnv8jlBuMaKAaeesPu3lLBVMHw"
+                />
+                <div class="absolute top-2 right-2 flex flex-col gap-2">
+                  <span
+                    class="bg-white/90 text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                    >Nuevo</span
+                  >
+                  <span
+                    class="bg-gray-200 text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                    >FW26</span
+                  >
+                </div>
+                <button
+                  class="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-500 text-xs font-medium uppercase">
+                  Kisiron By Hesed
+                </p>
+                <h5 class="text-sm font-semibold text-gray-800 line-clamp-1">
+                  Campera Importada Gabardina
+                </h5>
+                <p class="text-lg font-bold mt-1 text-black">$ 33.500</p>
+                <div class="mt-2 flex items-center gap-1">
+                  <div
+                    class="w-3 h-3 bg-black rounded-sm border border-gray-200"
+                  >
+                  </div>
+                  <div
+                    class="w-3 h-3 bg-beige-200 rounded-sm border border-gray-200 bg-[#f5f5dc]"
+                  >
+                  </div>
+                  <div
+                    class="w-3 h-3 bg-blue-500 rounded-sm border border-gray-200"
+                  >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div
+              class="product-card group bg-white overflow-hidden flex flex-col"
+            >
+              <div
+                class="relative aspect-3/4 overflow-hidden bg-gray-100 rounded-lg"
+              >
+                <img
+                  alt="Chomba Bremer"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_mPVcdJKBS9ZaP7n3oQBi90YIgSnGrK3p8t5FJcl4Nh-mRX3A3r3C3FiBHHPAufmt1PW42Je8IMQemMIvYoFyB2NrKrJTeS1yh0NLc6Yl1-tmBM2fzuE871M9SOEKTNb6ANV7JymiBWD8DPahhCf6F9TZx461X7dMm791xC9vrkw_kJTGoxrhokF81QJBhfvhGxbcBbZGscaKM3WdvAJi2vTGxl2X_ygHQ6UjXeERMTY1tPUkn9k7ufVAv-SlVp8jmVZcUx1y0wY"
+                />
+                <div class="absolute top-2 right-2">
+                  <span
+                    class="bg-white/90 text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                    >Nuevo</span
+                  >
+                </div>
+                <button
+                  class="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-500 text-xs font-medium uppercase">
+                  Kisiron By Hesed
+                </p>
+                <h5 class="text-sm font-semibold text-gray-800 line-clamp-1">
+                  Chomba De Bremer Grueso Liso
+                </h5>
+                <p class="text-lg font-bold mt-1 text-black">$ 23.000</p>
+                <div class="mt-2 flex items-center gap-1">
+                  <div
+                    class="w-3 h-3 bg-black rounded-sm border border-gray-200"
+                  >
+                  </div>
+                  <div
+                    class="w-3 h-3 bg-gray-400 rounded-sm border border-gray-200"
+                  >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div
+              class="product-card group bg-white overflow-hidden flex flex-col"
+            >
+              <div
+                class="relative aspect-3/4 overflow-hidden bg-gray-100 rounded-lg"
+              >
+                <img
+                  alt="Sweater Importado"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSrI8MIu5eXX7ToL0yM3WD938aamKBmVnRU7TcMGmwkXpTsKhfiJdLw_47qGpR-rsIZUe5y2e8L1M9UsBFZbpUqs3q7jkkY1taLutNatyxVVBLJgpZdbVBiJLEZJ0Y8-lnjjuADgBdcVEeZjfqp9ctKyFud0kRW9644O1JilEDLZpmRZtKMRXEFqhjsybRUcYWQsPvKcEUFJQjmBrZLYxJAu3OuW6aUt4QwRErEfj2J5-oZtVT5Me5UF3ebbAL63tphc6omXSls-g"
+                />
+                <div class="absolute top-2 right-2 flex flex-col gap-2">
+                  <span
+                    class="bg-white/90 text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                    >Nuevo</span
+                  >
+                </div>
+                <button
+                  class="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-500 text-xs font-medium uppercase">
+                  Kisiron By Hesed
+                </p>
+                <h5 class="text-sm font-semibold text-gray-800 line-clamp-1">
+                  Sweater Importado De Bremer
+                </h5>
+                <p class="text-lg font-bold mt-1 text-black">$ 22.500</p>
+                <div class="mt-2 flex items-center gap-1">
+                  <div
+                    class="w-3 h-3 bg-red-600 rounded-sm border border-gray-200"
+                  >
+                  </div>
+                  <div
+                    class="w-3 h-3 bg-black rounded-sm border border-gray-200"
+                  >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div
+              class="product-card group bg-white overflow-hidden flex flex-col"
+            >
+              <div
+                class="relative aspect-3/4 overflow-hidden bg-gray-100 rounded-lg"
+              >
+                <img
+                  alt="Remera Nicoletta"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBTxwO8eexr_6IjmeSwXN5auDJpfKbSnebnmfirNmTYLzal5ndzIuWMkTFTn0F-x7gHOwVMAEemRgVhbxlM7To1H_9SOpwZtDTk_axj2A0OrQi45QO0TG1rfttrlZ3wFW0KdrD4o_RYtC4G2cDjkXts-QcxpWNjIExRnwcELjt1qGBDiVihOR9FM_WchxEKUA9XMCcSiIEUuMTNaVIKWQhIcyHiOe__pV1LqZ310Oc-5F2C-AjyzhhSogx_ywfhzMnB6jwIkh4koY"
+                />
+                <div class="absolute top-2 right-2">
+                  <span
+                    class="bg-white/90 text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                    >Nuevo</span
+                  >
+                </div>
+                <button
+                  class="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-3">
+                <p class="text-gray-500 text-xs font-medium uppercase">
+                  Benir by Bless
+                </p>
+                <h5 class="text-sm font-semibold text-gray-800 line-clamp-1">
+                  Remera Nicoletta V-Neck
+                </h5>
+                <p class="text-lg font-bold mt-1 text-black">$ 7.000</p>
+                <div class="mt-2 flex items-center gap-1">
+                  <div
+                    class="w-3 h-3 bg-white border border-gray-200 rounded-sm"
+                  >
+                  </div>
+                  <div
+                    class="w-3 h-3 bg-black rounded-sm border border-gray-200"
+                  >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: ProductGrid -->
+    </main>
+    <!-- BEGIN: Footer -->
+    <footer class="bg-accent text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <!-- Brand Info -->
+          <div>
+            <h6 class="text-2xl font-bold text-primary mb-6">
+              distrito<span class="text-white">moda</span>
+            </h6>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              La plataforma líder de venta de ropa por mayor en Avellaneda.
+              Conectamos tiendas con compradores de todo el país.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                class="text-white hover:text-primary transition-colors"
+                href="#"
+              >
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  ></path></svg
+                >
+              </a>
+              <a
+                class="text-white hover:text-primary transition-colors"
+                href="#"
+              >
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M12.315 2c2.43 0 2.784.01 3.71.054 1.14.044 1.918.27 2.616.54.713.276 1.236.639 1.71 1.122.446.483.856 1.006 1.122 1.71.27.698.502 1.476.54 2.616.044.926.054 1.28.054 3.71s-.01 2.784-.054 3.71c-.044 1.14-.27 1.918-.54 2.616-.276.713-.639 1.236-1.122 1.71-.483.446-1.006.856-1.71 1.122-.698.27-1.476.502-2.616.54-.926.044-1.28.054-3.71.054s-2.784-.01-3.71-.054c-1.14-.044-1.918-.27-2.616-.54-.713-.276-1.236-.639-1.71-1.122-.446-.483-.856-1.006-1.122-1.71-.27-.698-.502-1.476-.54-2.616-.044-.926-.054-1.28-.054-3.71s.01-2.784.054-3.71c.044-1.14.27-1.918.54-2.616.276-.713.639-1.236 1.122-1.71.483-.446 1.006-.856 1.71-1.122.698-.27 1.476-.502 2.616-.54.926-.044 1.28-.054 3.71-.054zM12 2.232c2.404 0 2.733.01 3.655.053 1.065.05 1.636.223 2.016.37.514.2.875.437 1.264.826.39.39.626.75.826 1.264.148.38.32.95.37 2.016.044.922.053 1.25.053 3.655s-.01 2.733-.053 3.655c-.05 1.065-.223 1.636-.37 2.016-.2.514-.437.875-.826 1.264-.39.39-.75.626-1.264.826-.38.148-.95.32-2.016.37-.922.044-1.25.053-3.655.053s-2.733-.01-3.655-.053c-1.065-.05-1.636-.223-2.016-.37-.514-.2-.875-.437-1.264-.826-.39-.39-.626-.75-.826-1.264-.148-.38-.32-.95-.37-2.016-.044-.922-.053-1.25-.053-3.655s.01-2.733.053-3.655c.05-1.065.223-1.636.37-2.016.2-.514.437-.875.826-1.264.39-.39.75-.626 1.264-.826.38-.148.95-.32 2.016-.37.922-.044 1.25-.053 3.655-.053zm0 5.807a3.961 3.961 0 100 7.922 3.961 3.961 0 000-7.922zm0 6.545a2.583 2.583 0 110-5.166 2.583 2.583 0 010 5.166zm5.244-7.584a.94.94 0 11-1.88 0 .94.94 0 011.88 0z"
+                  ></path></svg
+                >
+              </a>
+            </div>
+          </div>
+          <!-- Links Column 1 -->
+          <div>
+            <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">
+              Compañía
+            </h6>
+            <ul class="space-y-4 text-sm text-gray-400">
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Cómo comprar</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Cómo vender</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Links Column 2 -->
+          <div>
+            <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">
+              Ayuda
+            </h6>
+            <ul class="space-y-4 text-sm text-gray-400">
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Preguntas Frecuentes</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Términos y Condiciones</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Política de Privacidad</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-white transition-colors" href="#"
+                  >Botón de Arrepentimiento</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Newsletter -->
+          <div>
+            <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">
+              Newsletter
+            </h6>
+            <p class="text-sm text-gray-400 mb-4">
+              Suscribite para recibir las mejores ofertas y tendencias.
+            </p>
+            <form class="flex">
+              <input
+                class="bg-white/10 border-none rounded-l px-4 py-2 w-full text-white placeholder-gray-500 focus:ring-1 focus:ring-primary"
+                placeholder="Tu email"
+                type="email"
+              />
+              <button
+                class="bg-primary px-4 py-2 rounded-r hover:bg-opacity-90 transition-all"
+                >Unirse</button
+              >
+            </form>
+          </div>
+        </div>
+        <div
+          class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4"
+        >
+          <p>© 2024 Distrito Moda. Todos los derechos reservados.</p>
+          <div class="flex space-x-4">
+            <img
+              alt="Visa"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYPZKmKPbgV7wiWdyz4Uo03mApbVi3GqitHOQ2cFFam4eaTpXYbalpsqHouMyMbBp6V5jrRX5Ckju4HQU1Uy69rziafLS1rmJfjvnSJXmtKnmRCO7ZGNofSG2ZbvSDWoOFns2VEy_pfzWJPh8j8NW3oYDcg0y-mAF7Gh_uSs-IPq93n6GaX9OdPITXvI0Roh3u66F9aPon9Rp3ojwnKZMXsSmk-EU2ZUk2LHY1gKFIddb8Z1XqWQV9hDHJBuruCSjKcJ0Up53zD3Y"
+            />
+            <img
+              alt="Mastercard"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFfa1P11vjeRj-Y-CZCU19mG4J9uC2gIem5w2LNYKN8oYKkpqoMAy_0y1xT6nRFR0meZskh0JlGrpM2MgzWPsZllRYFAsmRqkUPNHGMF1LDi54SwLjkdfpSsBc69Ezj98hZ91JF8k2FICmafquF2owTmshoLjLrZUo6HzqcU-9WFJHfgEaF70925ndNEaXuWyRSinCxwlWebKgNMP89jQw-hVFt9v70YOrwvaXJFjXgCbKGAnhPmVsNWulx8fDl6Ia2Hc6nKq7KaU"
+            />
+            <img
+              alt="Mercado Pago"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuALhedx6PeKUJjQDmt-TtALmqGDDR4zEQjUiSWyWZO2pGv4EnF9ynm1RzxqJs00pQKs-_QYGRGGw5SDaXprqQKGjCV0y67kpQq_sFQLdvf7ENAEGrVapzOOHjn2m2h8buaPyb64tXqblXt31pHksJkw6epq0Y_yYPFK-FGEe_X7M99mmF7LGl_5ezMVRxbkhijL30p0v-th4XPOa-4z_Ycb0-5efaQrlUm2K6dW25nkXCefUotP-BYhfYNC_18ep2dVGuWPVf7RQ2Y"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END: Footer -->
+  </body>
+</Layout>
+
+<style lang="scss">
+  @use "webcoreui/config" as *;
+
+  p {
+    @include typography(center);
+  }
+</style>
