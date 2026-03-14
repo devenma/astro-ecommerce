@@ -1,5 +1,4 @@
 ---
-import logo from "@assets/logo.svg";
 import { Image } from "astro:assets";
 
 const {
@@ -18,9 +17,9 @@ const heights = { small: 30, medium: 40, large: 60 };
   class:list={[className, "dm-logo flex items-center justify-center"]}
 >
   <Image
-    src={logo}
-    format="webp"
+    src="/logo.svg"
     height={heights[size]}
+    width={heights[size] * 3.75}
     alt="page logo"
     loading="eager"
   />
