@@ -1,0 +1,28 @@
+---
+import { Bell, Heart, ShoppingCart } from "@lucide/astro";
+import IconButton from "@components/astro/ui/IconButton.astro";
+import Button from "@components/astro/ui/Button.astro";
+---
+
+<!-- User Actions -->
+<div class="flex items-center space-x-4">
+  <div class="hidden lg:flex items-center space-x-2">
+    <Button text="Iniciar Sesión" />
+    <Button text="Registrate" variant="secondary" />
+  </div>
+  <div class="flex items-center md:space-x-3 text-slate-800">
+    <IconButton className="notifications-btn max-sm:hidden">
+      <Bell class="h-6 w-6" />
+    </IconButton>
+    <IconButton className="favorites-btn max-sm:hidden">
+      <Heart class="h-6 w-6" />
+    </IconButton>
+    <IconButton className="cart-btn relative">
+      <ShoppingCart class="h-6 w-6" />
+      <span
+        class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center"
+        >0</span
+      >
+    </IconButton>
+  </div>
+</div>

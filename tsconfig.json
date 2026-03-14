@@ -8,14 +8,33 @@
     "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
       "@components/*": [
         "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
       ]
     }
   },
   "include": [
     ".astro/types.d.ts",
-    "./worker-configuration.d.ts"
+    "./worker-configuration.d.ts",
+    "**/*"
   ],
   "exclude": [
     "dist"

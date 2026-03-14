@@ -1,0 +1,25 @@
+---
+import Logo from "@components/astro/ui/Logo.astro";
+import SearchBar from "@components/astro/SearchBar.astro";
+import UserActions from "@components/astro/UserActions.astro";
+import NavigationBar from "@components/astro/NavigationBar.astro";
+---
+
+<header
+  class="sticky flex flex-col top-0 z-50 bg-white border-b border-gray-100"
+>
+  <!-- Utility Nav -->
+  <div
+    class="container mx-auto px-4 py-2 flex items-center justify-between gap-4"
+  >
+    <Logo
+      size="medium"
+      text="ropa por mayor en avellaneda"
+      className="max-sm:hidden"
+      textClass="max-md:hidden"
+    />
+    <SearchBar />
+    <UserActions />
+  </div>
+</header>
+<NavigationBar />

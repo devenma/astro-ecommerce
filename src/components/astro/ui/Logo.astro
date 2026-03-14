@@ -1,0 +1,39 @@
+---
+import logo from "@assets/logo.svg";
+import { Image } from "astro:assets";
+
+const {
+  size = "small",
+  text = "",
+  className = "",
+  textClass = "",
+} = Astro.props;
+const heights = { small: 30, medium: 40, large: 60 };
+---
+
+<!-- Logo -->
+<a
+  href="/"
+  aria-label="home link"
+  class:list={[className, "dm-logo flex items-center justify-center"]}
+>
+  <Image
+    src={logo}
+    format="webp"
+    height={heights[size]}
+    alt="page logo"
+    loading="eager"
+  />
+  {
+    text && (
+      <span
+        class:list={[
+          textClass,
+          "ml-2 pl-2 border-l border-secondary text-pretty max-w-32 tracking-tighter leading-tight font-semibold text-secondary uppercase text-sm",
+        ]}
+      >
+        {text}
+      </span>
+    )
+  }
+</a>

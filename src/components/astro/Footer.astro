@@ -1,0 +1,126 @@
+---
+import Logo from "@components/astro/ui/Logo.astro";
+import { Facebook, Instagram, type Icon as IconType } from "@lucide/astro";
+
+const redes = [
+  {
+    name: "Facebook",
+    href: "#",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    href: "#",
+    icon: Instagram,
+  },
+];
+---
+
+<!-- BEGIN: Footer -->
+<footer class="bg-accent text-secondary py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <!-- Brand Info -->
+      <div>
+        <Logo />
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          La plataforma líder de venta de ropa por mayor en Avellaneda.
+          Conectamos tiendas con compradores de todo el país.
+        </p>
+        <!-- Redes Sociales -->
+        <div class="flex space-x-4">
+          {
+            redes.map((red) => (
+              <a
+                data-name={red.name}
+                href={red.href}
+                class="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <red.icon />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <!-- Links Column 1 -->
+      <div>
+        <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">
+          Compañía
+        </h6>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Cómo comprar</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Cómo vender</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- Links Column 2 -->
+      <div>
+        <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">Ayuda</h6>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Preguntas Frecuentes</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Términos y Condiciones</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Política de Privacidad</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-slate-600 transition-colors" href="#"
+              >Botón de Arrepentimiento</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <h6 class="font-bold mb-6 uppercase tracking-wider text-sm">
+          Newsletter
+        </h6>
+        <p class="text-sm text-gray-400 mb-4">
+          Suscribite para recibir las mejores ofertas y tendencias.
+        </p>
+        <form class="flex">
+          <input
+            class="bg-white/10 border border-slate-200 rounded-l-lg px-4 py-2 w-full text-secondary placeholder-gray-500 focus:ring-1 focus:ring-primary"
+            placeholder="Tu email"
+            type="email"
+          />
+          <button
+            class="bg-primary px-4 text-white py-2 rounded-r-lg hover:bg-opacity-90 transition-all cursor-pointer"
+            >Unirse</button
+          >
+        </form>
+      </div>
+    </div>
+    <div
+      class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4"
+    >
+      <p>© 2024 Distrito Moda. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
