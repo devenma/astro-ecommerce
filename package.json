@@ -12,18 +12,18 @@
     "deploy": "astro check && astro build && wrangler deploy --env production"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.7",
-    "@astrojs/cloudflare": "^13.1.1",
-    "@lucide/astro": "^0.577.0",
-    "@tailwindcss/vite": "^4.2.1",
-    "@types/node": "^25.5.0",
-    "astro": "^6.0.4",
-    "tailwindcss": "^4.2.1",
+    "@astrojs/check": "0.9.7",
+    "@astrojs/cloudflare": "13.1.1",
+    "@lucide/astro": "0.577.0",
+    "@tailwindcss/vite": "4.2.1",
+    "@types/node": "25.5.0",
+    "astro": "6.0.4",
+    "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
-    "wrangler": "^4.73.0"
+    "wrangler": "4.73.0"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
+    "@types/node": "25.5.0",
     "typescript": "5.9.3"
   }
 }

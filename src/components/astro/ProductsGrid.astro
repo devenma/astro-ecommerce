@@ -1,0 +1,28 @@
+---
+import type { Product } from "@types-local/product.ts";
+const { productsData } = Astro.props as { productsData: Product[] };
+import { ChevronRight } from "@lucide/astro";
+import ProductCard from "./ProductCard.astro";
+---
+
+<!-- BEGIN: ProductGrid -->
+<section class="py-12">
+  <div class="container">
+    <div class="flex items-center justify-between mb-8">
+      <h4 class="text-xl font-bold text-gray-800">Productos destacados</h4>
+      <a
+        class="text-primary font-semibold flex items-center hover:underline"
+        href="/productos"
+      >
+        Ver más
+        <ChevronRight class="size-4 ml-1" />
+      </a>
+    </div>
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-max gap-4 grid-flow-row"
+    >
+      {productsData.map((product) => <ProductCard product={product} />)}
+    </div>
+  </div>
+</section>
+<!-- END: ProductGrid -->

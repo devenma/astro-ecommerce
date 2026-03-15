@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [],
   adapter: cloudflare(),
   output: 'server',
-
+  site: 'https://astro-ecommerce.devenma.workers.dev/',
   vite: {
     plugins: [tailwindcss()],
   },

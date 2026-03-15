@@ -1,0 +1,252 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getStoreBySlug } from "@lib/stores";
+import { getProductsByStoreSlug } from "@lib/products";
+import { Share2, Earth, Tag, ChevronLeft, ChevronRight } from "@lucide/astro";
+import { Image } from "astro:assets";
+import ProductCard from "@/components/astro/ProductCard.astro";
+const { slug } = Astro.params;
+
+if (!slug) return Astro.redirect("/404");
+const storeData = await getStoreBySlug(slug);
+const productsData = await getProductsByStoreSlug(slug);
+if (!storeData) return Astro.redirect("/404");
+---
+
+<Layout>
+  <div class="container py-12 mx-auto px-4">
+    <!-- Store Header Section -->
+    <section class="mb-12 mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+        <div
+          class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border-4 border-white shadow-xl flex items-center justify-center bg-white"
+        >
+          <Image
+            src={storeData.logo ?? "/assets/images/store-placeholder.png"}
+            alt={storeData.name}
+            width="160"
+            height="160"
+            class="w-full object-cover"
+          />
+        </div>
+        <div class="flex-1 text-center md:text-left space-y-4">
+          <div class="flex flex-col md:flex-row md:items-center gap-4">
+            <h2 class="text-3xl font-semibold text-slate-900">
+              {storeData.name}
+            </h2>
+            <div class="flex gap-2 justify-center">
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                >Verified Seller</span
+              >
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent"
+                >4.8 Rating</span
+              >
+            </div>
+          </div>
+          <p class="text-slate-600 max-w-2xl text-lg leading-relaxed">
+            {storeData.description}
+          </p>
+          <!-- Social Links -->
+          <div class="flex gap-4 justify-center md:justify-start">
+            <a
+              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-accent/10 transition-colors group"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-slate-600 group-hover:text-accent"
+                ><Share2 /></span
+              >
+              <span class="text-sm font-semibold">Instagram</span>
+            </a>
+            <a
+              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-accent/10 transition-colors group"
+              href="#"
+            >
+              <span
+                class="material-symbols-outlined text-slate-600 group-hover:text-accent"
+                ><Earth /></span
+              >
+              <span class="text-sm font-semibold">Facebook</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Product Viewport -->
+    <div class="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto px-4">
+      <!-- Side Filters -->
+      <aside class="w-full lg:w-64 shrink-0 space-y-8">
+        <!-- Categories -->
+        <div>
+          <h3
+            class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined text-sm">category</span> Categories
+          </h3>
+          <div class="space-y-1">
+            <button
+              class="w-full flex items-center justify-between px-3 py-2 bg-accent/10 text-accent rounded-lg font-medium"
+            >
+              <span>All Products</span>
+              <span class="text-xs opacity-60">124</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between px-3 py-2 hover:bg-slate-100 rounded-lg transition-colors"
+            >
+              <span>Dresses</span>
+              <span class="text-xs text-slate-400">42</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between px-3 py-2 hover:bg-slate-100 rounded-lg transition-colors"
+            >
+              <span>Tops</span>
+              <span class="text-xs text-slate-400">28</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between px-3 py-2 hover:bg-slate-100 rounded-lg transition-colors"
+            >
+              <span>Bottoms</span>
+              <span class="text-xs text-slate-400">31</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between px-3 py-2 hover:bg-slate-100 rounded-lg transition-colors"
+            >
+              <span>Accessories</span>
+              <span class="text-xs text-slate-400">23</span>
+            </button>
+          </div>
+        </div>
+        <!-- Sizes -->
+        <div>
+          <h3
+            class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined text-sm">straighten</span> Sizes
+          </h3>
+          <div class="grid grid-cols-3 gap-2">
+            <button
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              >XS</button
+            >
+            <button
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              >S</button
+            >
+            <button class="bg-accent text-white py-2 rounded-lg text-sm"
+              >M</button
+            >
+            <button
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              >L</button
+            >
+            <button
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              >XL</button
+            >
+            <button
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              >XXL</button
+            >
+          </div>
+        </div>
+        <!-- Price Range -->
+        <div>
+          <h3
+            class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined text-sm">payments</span> Price
+            Range
+          </h3>
+          <input
+            class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent"
+            type="range"
+          />
+          <div class="flex justify-between mt-2 text-xs text-slate-400">
+            <span>$0</span>
+            <span>$500</span>
+          </div>
+        </div>
+      </aside>
+      <!-- Product Grid Area -->
+      <div class="flex-1">
+        <!-- Sorting & Tabs -->
+        <div
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-slate-200"
+        >
+          <div class="flex gap-6 overflow-x-auto w-full sm:w-auto no-scrollbar">
+            <button
+              class="pb-4 border-b-2 border-accent text-slate-900 font-bold whitespace-nowrap"
+              >All Products</button
+            >
+            <button
+              class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-slate-900 font-medium whitespace-nowrap"
+              >New Arrivals</button
+            >
+            <button
+              class="pb-4 border-b-2 border-transparent text-slate-500 hover:text-slate-900 font-medium whitespace-nowrap"
+              >Best Sellers</button
+            >
+            <button
+              class="pb-4 border-b-2 border-transparent text-accent font-medium whitespace-nowrap flex items-center gap-1"
+            >
+              <span class="material-symbols-outlined text-sm"><Tag /></span> Sale
+            </button>
+          </div>
+          <div
+            class="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-lg text-sm"
+          >
+            <span class="text-slate-500">Sort:</span>
+            <select
+              class="bg-transparent border-none p-0 focus:ring-0 text-sm font-semibold"
+            >
+              <option>Latest</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Popularity</option>
+            </select>
+          </div>
+        </div>
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            productsData.length ? (
+              productsData.map((product) => <ProductCard product={product} />)
+            ) : (
+              <p class="text-center text-slate-500 col-span-full">
+                No products found.
+              </p>
+            )
+          }
+        </div>
+        <!-- Pagination -->
+        <div class="mt-12 flex justify-center items-center gap-2">
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-900 transition-colors"
+          >
+            <span class="material-symbols-outlined"><ChevronLeft /></span>
+          </button>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-accent text-white font-bold"
+            >1</button
+          >
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50"
+            >2</button
+          >
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50"
+            >3</button
+          >
+          <span class="px-2">...</span>
+          <button
+            class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:text-slate-900 transition-colors"
+          >
+            <span class="material-symbols-outlined"><ChevronRight /></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import type { Store } from "@types-local/store.ts";
+const { storesData } = Astro.props as { storesData: Store[] };
+import { Image } from "astro:assets";
+import { ChevronRight } from "@lucide/astro";
+---
+
+<!-- BEGIN: StoresGrid -->
+<section class="py-12">
+  <div class="container">
+    <div class="flex items-center justify-between mb-8">
+      <h4 class="text-xl font-bold text-gray-800">Tiendas destacadas</h4>
+      <a
+        class="text-primary font-semibold flex items-center hover:underline"
+        href="/tiendas"
+      >
+        Ver más
+        <ChevronRight class="size-4 ml-1" />
+      </a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-cols-max gap-4 grid-flow-row">
+      {
+        storesData.map((store) => (
+          <a href={`/tiendas/${store.slug}`} data-id={store.id} class="aspect-square flex items-center justify-center bg-white max-w-52 rounded-lg shadow-sm overflow-hidden group cursor-pointer hover:shadow-md transition-shadow">
+            <Image
+              src={store.logo ?? "/assets/images/product-placeholder.png"}
+              alt={store.name}
+              width=208
+              height=208
+              class="object-cover group-hover:scale-105 transition-transform"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<!-- END: StoresGrid -->
