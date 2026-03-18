@@ -5,7 +5,7 @@ export type Product = {
   brand: { name: string; slug: string } | null;
   price?: number | null;
   currency?: string | null;
-  image: string | null;
+  images: string[] | null;
   sizes: string[] | null;
   colors: string[] | null;
 };

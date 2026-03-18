@@ -5,11 +5,10 @@ import UserActions from "@components/astro/UserActions.astro";
 import NavigationBar from "@components/astro/NavigationBar.astro";
 ---
 
-<!-- BEGIN: TopHeader -->
 <header
+  data-component="Header"
   class="sticky flex flex-col top-0 z-50 bg-white border-b border-gray-100"
 >
-  <!-- Utility Nav -->
   <div
     class="container mx-auto px-4 py-2 flex items-center justify-between gap-4"
   >
@@ -24,4 +23,3 @@ import NavigationBar from "@components/astro/NavigationBar.astro";
   </div>
 </header>
 <NavigationBar />
-<!-- END: TopHeader -->

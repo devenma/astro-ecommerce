@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Inicio",
+    "href": "/",
+    "key": "home"
+  },
+  {
+    "name": "Ingresos",
+    "href": "/ingresos",
+    "key": "ingresos"
+  },
+  {
+    "name": "Ofertas",
+    "href": "/ofertas",
+    "key": "ofertas"
+  },
+  {
+    "name": "Mujer",
+    "href": "/mujer",
+    "key": "mujer"
+  },
+  {
+    "name": "Hombre",
+    "href": "/hombre",
+    "key": "hombre"
+  },
+  {
+    "name": "Infantil",
+    "href": "/infantil",
+    "key": "infantil"
+  },
+  {
+    "name": "Accesorios",
+    "href": "/accesorios",
+    "key": "accesorios"
+  },
+  {
+    "name": "Calzados",
+    "href": "/calzados",
+    "key": "calzados"
+  },
+  {
+    "name": "Tiendas",
+    "href": "/tiendas",
+    "key": "tiendas"
+  },
+  {
+    "name": "Tendencias",
+    "href": "/tendencias",
+    "key": "tendencias"
+  }
+]

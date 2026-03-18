@@ -7,22 +7,24 @@ const { product } = Astro.props as { product: Product };
 import { Image } from "astro:assets";
 ---
 
-<div
+<article
   data-id={product.id}
+  data-component="ProductCard"
   class="bg-white rounded-lg shadow-sm overflow-hidden group cursor-pointer hover:shadow-md transition-shadow"
 >
   <div class="flex relative overflow-hidden">
     <a href={`/productos/${product.slug}`}>
       <Image
-        src={product.image ?? "/assets/images/product-placeholder.png"}
+        src={product.images?.[0] ?? "/assets/images/product-placeholder.png"}
         alt={product.title}
         width="400"
         height="600"
-        class="object-cover group-hover:scale-105 transition-transform"
+        loading="lazy"
+        class="object-cover group-hover:scale-105 transition-transform duration-400"
       />
     </a>
     <button
-      class="absolute cursor-pointer top-4 right-4 p-2 bg-white/80 backdrop-blur rounded-full text-slate-900 hover:text-accent transition-colors"
+      class="absolute cursor-pointer top-4 right-4 p-2 bg-white/80 backdrop-blur rounded-full text-slate-900 hover:text-primary-accent-hover transition-colors"
     >
       <span class="material-symbols-outlined"><HeartPlus /></span>
     </button>
@@ -30,7 +32,7 @@ import { Image } from "astro:assets";
       class="absolute bottom-0 left-0 right-0 p-4 translate-y-full max-md:translate-y-0 group-hover:translate-y-0 transition-transform duration-300"
     >
       <button
-        class="w-full py-3 cursor-pointer bg-white text-slate-900 font-bold rounded-xl shadow-lg hover:bg-accent hover:text-white transition-colors flex items-center justify-center gap-2"
+        class="w-full py-3 cursor-pointer bg-white text-slate-900 font-bold rounded-xl shadow-lg hover:bg-primary-accent-hover hover:text-white transition-colors flex items-center justify-center gap-2"
       >
         <span class="material-symbols-outlined text-sm"><ShoppingCart /></span>
         Add to Cart
@@ -60,4 +62,4 @@ import { Image } from "astro:assets";
       }
     </div>
   </div>
-</div>
+</article>

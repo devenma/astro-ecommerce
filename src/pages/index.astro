@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PromoBanner from "@components/astro/PromoBanner.astro";
-import Hero from "@components/astro/Hero.astro";
+import HeroSection from "@components/astro/HeroSection.astro";
 import ProductsGrid from "@/components/astro/ProductsGrid.astro";
 import StoresGrid from "@/components/astro/StoresGrid.astro";
 import { getProducts } from "@lib/products";
@@ -12,7 +12,7 @@ const productsData = await getProducts();
 ---
 
 <Layout>
-  <Hero />
+  <HeroSection />
   <PromoBanner />
   <div class="max-w-7xl mx-auto px-4">
     <StoresGrid storesData={storesData} />

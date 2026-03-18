@@ -1,18 +1,30 @@
 ---
 import type { Product } from "@types-local/product.ts";
-const { productsData } = Astro.props as { productsData: Product[] };
+type Props = {
+  productsData: Product[];
+  title?: string;
+  link?: string;
+};
+const {
+  productsData,
+  title = "Productos destacados",
+  link = "/productos",
+}: Props = Astro.props;
 import { ChevronRight } from "@lucide/astro";
 import ProductCard from "./ProductCard.astro";
+
+if (!productsData || productsData.length === 0) {
+  return;
+}
 ---
 
-<!-- BEGIN: ProductGrid -->
-<section class="py-12">
+<section data-component="ProductsGrid" class="py-12">
   <div class="container">
     <div class="flex items-center justify-between mb-8">
-      <h4 class="text-xl font-bold text-gray-800">Productos destacados</h4>
+      <h4 class="text-xl font-bold text-gray-800">{title}</h4>
       <a
         class="text-primary font-semibold flex items-center hover:underline"
-        href="/productos"
+        href={link}
       >
         Ver más
         <ChevronRight class="size-4 ml-1" />
@@ -25,4 +37,3 @@ import ProductCard from "./ProductCard.astro";
     </div>
   </div>
 </section>
-<!-- END: ProductGrid -->

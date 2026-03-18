@@ -2,9 +2,10 @@
 import { ChevronLeft, ChevronRight } from "@lucide/astro";
 ---
 
-<!-- BEGIN: HeroSection -->
-<section class="relative bg-[#d3d9ce] min-h-screen overflow-hidden">
-  <!-- Background Text Elements (from reference image) -->
+<section
+  data-component="HeroSection"
+  class="relative bg-[#d3d9ce] min-h-screen overflow-hidden"
+>
   <div
     class="absolute inset-0 flex flex-col justify-center select-none pointer-events-none px-8 opacity-20"
   >
@@ -12,10 +13,10 @@ import { ChevronLeft, ChevronRight } from "@lucide/astro";
     <span class="text-[120px] font-bold leading-tight uppercase">Temporada</span
     >
   </div>
+
   <div
     class="container mx-auto h-full px-4 flex flex-col lg:flex-row items-center justify-center relative"
   >
-    <!-- Hero Image (Woman in sweater) -->
     <div class="md:p-16 h-full flex items-end justify-center pt-10">
       <img
         alt="Fashion Hero"
@@ -23,7 +24,7 @@ import { ChevronLeft, ChevronRight } from "@lucide/astro";
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyOaBRDL29RRM1qwyf1sER9gbdt0HxmvSXSXO6K4o48dNr1HRPCYa-Miw5NeZ8elKXpVm4E_v9T0pOT5xDCog-GVjhtgY3hWwPgsOLN6nQAQ9DhnzT27F4JDO8W1d9_6EtltzVyBgiubHvMoP5LTMDlOEqeFje5wOQ1k6hKWosLecZlULk1oUlfGplUfrNOaN8tHoDT_itEDiQ-Zjq9V0EOlxMyedJ5MxfQWFD_O2orV13AJPbwTFigA7vih4RdK3GkxR2wU23Iws"
       />
     </div>
-    <!-- Hero Content -->
+
     <div class="lg:w-1/2 text-center lg:text-left z-10 py-8 lg:py-0">
       <h2
         class="text-4xl lg:text-8xl font-black italic text-black leading-none mb-2"
@@ -46,7 +47,7 @@ import { ChevronLeft, ChevronRight } from "@lucide/astro";
         </a>
       </div>
     </div>
-    <!-- Carousel Indicators -->
+
     <div
       class="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 flex space-x-2"
     >
@@ -54,7 +55,7 @@ import { ChevronLeft, ChevronRight } from "@lucide/astro";
       <div class="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
     </div>
   </div>
-  <!-- Arrow Navigation -->
+
   <button
     class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white transition-all hidden md:block"
   >
@@ -66,4 +67,3 @@ import { ChevronLeft, ChevronRight } from "@lucide/astro";
     <ChevronRight class="h-6 w-6" />
   </button>
 </section>
-<!-- END: HeroSection -->

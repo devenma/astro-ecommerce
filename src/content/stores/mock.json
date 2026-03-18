@@ -3,50 +3,105 @@
     "id": 1,
     "name": "Nare",
     "slug": "nare",
+    "mail": "info@nare.com.ar",
+    "phone": "",
     "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/logonare.jpg",
+    "cover": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/logonare.jpg",
     "address": "Av. Avellaneda 3090, CABA, Ciudad de Buenos Aires, 1406",
     "url": "https://www.distritomoda.com.ar/users/nare",
-    "phone": "",
+    "minimum_order_amount": 18000,
+    "website": "https://www.nare.com.ar/",
+    "social": {
+      "instagram": "https://www.instagram.com/nare.argentina/"
+    },
+    "coordinates": {
+      "latitude": -34.644,
+      "longitude": -58.517
+    },
     "description": "Nare es una tienda de ropa y accesorios que ofrece una cuidada selección de prendas de diseño independiente, con un enfoque en la moda sostenible y ética. En Nare, encontrarás piezas únicas y de alta calidad que combinan estilo y conciencia ambiental, ideales para quienes buscan un guardarropa con propósito."
   },
   {
     "id": 2,
     "name": "Maddox",
     "slug": "maddox",
+    "mail": "info@maddox.com.ar",
+    "phone": "",
     "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/maddox.png",
+    "cover": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/maddox.png",
     "address": "BOGOTA 2965 - 1 \"i12\", Comuna 7, Ciudad de Buenos Aires, 1406",
     "url": "https://www.distritomoda.com.ar/users/maddox",
-    "phone": "",
+    "minimum_order_amount": 15000,
+    "website": "https://www.maddox.com.ar/",
+    "social": {
+      "instagram": "https://www.instagram.com/maddox.argentina/"
+    },
+    "coordinates": {
+      "latitude": -34.644,
+      "longitude": -58.517
+    },
     "description": "Maddox es una tienda de moda urbana que ofrece una amplia gama de prendas y accesorios para hombres y mujeres. Con un enfoque en las últimas tendencias y un estilo contemporáneo, Maddox se ha convertido en un destino popular para aquellos que buscan ropa moderna y de calidad en el corazón de Buenos Aires."
   },
   {
     "id": 3,
     "name": "Anexo",
     "slug": "anexo",
+    "mail": "info@anexo.com.ar",
+    "phone": "",
     "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/anexo-logo-con-fondo.png",
+    "cover": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/anexo-logo-con-fondo.png",
     "address": "Bogota 2972 - -local \u0022-A05\u0022, Comuna 7, Ciudad de Buenos Aires, 1406",
     "url": "https://www.distritomoda.com.ar/users/anexo",
-    "phone": "",
+    "minimum_order_amount": 10000,
+    "website": "https://www.anexo.com.ar/",
+    "social": {
+      "instagram": "https://www.instagram.com/anexo.argentina/"
+    },
+    "coordinates": {
+      "latitude": -34.644,
+      "longitude": -58.517
+    },
     "description": "Anexo es una tienda de moda que se especializa en ofrecer una selección curada de prendas y accesorios para hombres y mujeres. Con un enfoque en la calidad, el diseño y las últimas tendencias, Anexo se ha establecido como un destino de moda imprescindible en Buenos Aires, brindando a sus clientes una experiencia de compra única y estilizada."
   },
   {
     "id": 4,
     "name": "Vintage",
     "slug": "vintage",
+    "mail": "info@vintage.com.ar",
+    "phone": "",
     "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/vintage-logo-png-positivo.png",
+    "cover": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/vintage-logo-png-positivo.png",
     "address": "AVELLANEDA 3079, Comuna 7, Ciudad de Buenos Aires, 1406",
     "url": "https://www.distritomoda.com.ar/users/vintage",
-    "phone": "",
+    "minimum_order_amount": 20000,
+    "website": "https://www.vintage.com.ar/",
+    "social": {
+      "instagram": "https://www.instagram.com/vintage.argentina/"
+    },
+    "coordinates": {
+      "latitude": -34.644,
+      "longitude": -58.517
+    },
     "description": "Vintage es una tienda de moda que se especializa en ofrecer una cuidada selección de prendas y accesorios de estilo retro y clásico. Con un enfoque en la calidad y el diseño atemporal, Vintage se ha convertido en un destino popular para aquellos que buscan piezas únicas y con historia en el corazón de Buenos Aires."
   },
   {
     "id": 5,
     "name": "Pacca Indumentaria",
     "slug": "pacca-indumentaria",
-    "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/logo_2.png",
-    "address": "Gaona 3868, CABA, Ciudad de Buenos Aires, 1407",
-    "url": "https://www.distritomoda.com.ar/users/pacca-indumentaria",
+    "mail": "info@pacca.com.ar",
     "phone": "",
+    "logo": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/logo_2.png",
+    "cover": "https://www.distritomoda.com.ar/sites/default/files/logos_tienda/logo_2.png",
+    "address": "Gaona 3868, CABA, Ciudad de Buenos Aires, 1407",
+    "url": "https://www.distritomoda.com.ar/user/pacca-indumentaria",
+    "minimum_order_amount": 32000,
+    "website": "https://www.pacca.com.ar/",
+    "social": {
+      "instagram": "https://www.instagram.com/pacca.argentina/"
+    },
+    "coordinates": {
+      "latitude": -34.644,
+      "longitude": -58.517
+    },
     "description": "Pacca Indumentaria es una tienda de moda que se especializa en ofrecer una selección de prendas y accesorios para hombres y mujeres. Con un enfoque en la calidad, el diseño y las últimas tendencias, Pacca Indumentaria se ha establecido como un destino de moda imprescindible en Buenos Aires, brindando a sus clientes una experiencia de compra única y estilizada."
   }
 ]

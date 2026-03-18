@@ -2,15 +2,15 @@
 const { text = "", variant = "primary", className = "" } = Astro.props;
 
 const baseClasses =
-  "cursor-pointer px-3 py-2.5 tracking-tight rounded-md hover:shadow-md text-xs font-bold transition-all uppercase";
+  "cursor-pointer px-3 py-2.5 tracking-tight rounded-md hover:border-primary-accent-hover hover:bg-primary-accent-hover hover:shadow-md text-xs font-bold transition-all uppercase";
 
 const variantClasses = {
-  primary: "text-white bg-primary border border-primary",
-  secondary:
-    "border border-primary text-red-600 hover:bg-primary hover:text-white",
+  primary: "text-on-primary bg-primary border border-primary",
+  secondary: "border border-primary text-primary hover:text-on-primary",
 };
 ---
 
-<button class:list={[className, baseClasses, variantClasses[variant]]}
-  >{text}</button
+<button
+  data-component-ui="Button"
+  class:list={[className, baseClasses, variantClasses[variant]]}>{text}</button
 >

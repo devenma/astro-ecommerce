@@ -26,6 +26,7 @@ if (!storeData) return Astro.redirect("/404");
             alt={storeData.name}
             width="160"
             height="160"
+            loading="eager"
             class="w-full object-cover"
           />
         </div>
@@ -40,7 +41,7 @@ if (!storeData) return Astro.redirect("/404");
                 >Verified Seller</span
               >
               <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/10 text-accent"
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-accent/10 text-primary-accent"
                 >4.8 Rating</span
               >
             </div>
@@ -51,21 +52,21 @@ if (!storeData) return Astro.redirect("/404");
           <!-- Social Links -->
           <div class="flex gap-4 justify-center md:justify-start">
             <a
-              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-accent/10 transition-colors group"
+              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-primary-accent/10 transition-colors group"
               href="#"
             >
               <span
-                class="material-symbols-outlined text-slate-600 group-hover:text-accent"
+                class="material-symbols-outlined text-slate-600 group-hover:text-primary-accent"
                 ><Share2 /></span
               >
               <span class="text-sm font-semibold">Instagram</span>
             </a>
             <a
-              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-accent/10 transition-colors group"
+              class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl hover:bg-primary-accent/10 transition-colors group"
               href="#"
             >
               <span
-                class="material-symbols-outlined text-slate-600 group-hover:text-accent"
+                class="material-symbols-outlined text-slate-600 group-hover:text-primary-accent"
                 ><Earth /></span
               >
               <span class="text-sm font-semibold">Facebook</span>
@@ -87,7 +88,7 @@ if (!storeData) return Astro.redirect("/404");
           </h3>
           <div class="space-y-1">
             <button
-              class="w-full flex items-center justify-between px-3 py-2 bg-accent/10 text-accent rounded-lg font-medium"
+              class="w-full flex items-center justify-between px-3 py-2 bg-primary-accent/10 text-primary-accent rounded-lg font-medium"
             >
               <span>All Products</span>
               <span class="text-xs opacity-60">124</span>
@@ -127,26 +128,26 @@ if (!storeData) return Astro.redirect("/404");
           </h3>
           <div class="grid grid-cols-3 gap-2">
             <button
-              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-primary-accent hover:text-primary-accent transition-colors"
               >XS</button
             >
             <button
-              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-primary-accent hover:text-primary-accent transition-colors"
               >S</button
             >
-            <button class="bg-accent text-white py-2 rounded-lg text-sm"
+            <button class="bg-primary-accent text-white py-2 rounded-lg text-sm"
               >M</button
             >
             <button
-              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-primary-accent hover:text-primary-accent transition-colors"
               >L</button
             >
             <button
-              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-primary-accent hover:text-primary-accent transition-colors"
               >XL</button
             >
             <button
-              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-accent hover:text-accent transition-colors"
+              class="border border-slate-200 py-2 rounded-lg text-sm hover:border-primary-accent hover:text-primary-accent transition-colors"
               >XXL</button
             >
           </div>
@@ -160,7 +161,7 @@ if (!storeData) return Astro.redirect("/404");
             Range
           </h3>
           <input
-            class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent"
+            class="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer primary-accent-primary-accent"
             type="range"
           />
           <div class="flex justify-between mt-2 text-xs text-slate-400">
@@ -177,7 +178,7 @@ if (!storeData) return Astro.redirect("/404");
         >
           <div class="flex gap-6 overflow-x-auto w-full sm:w-auto no-scrollbar">
             <button
-              class="pb-4 border-b-2 border-accent text-slate-900 font-bold whitespace-nowrap"
+              class="pb-4 border-b-2 border-primary-accent text-slate-900 font-bold whitespace-nowrap"
               >All Products</button
             >
             <button
@@ -189,7 +190,7 @@ if (!storeData) return Astro.redirect("/404");
               >Best Sellers</button
             >
             <button
-              class="pb-4 border-b-2 border-transparent text-accent font-medium whitespace-nowrap flex items-center gap-1"
+              class="pb-4 border-b-2 border-transparent text-primary-accent font-medium whitespace-nowrap flex items-center gap-1"
             >
               <span class="material-symbols-outlined text-sm"><Tag /></span> Sale
             </button>
@@ -228,7 +229,7 @@ if (!storeData) return Astro.redirect("/404");
             <span class="material-symbols-outlined"><ChevronLeft /></span>
           </button>
           <button
-            class="w-10 h-10 flex items-center justify-center rounded-lg bg-accent text-white font-bold"
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-accent text-white font-bold"
             >1</button
           >
           <button

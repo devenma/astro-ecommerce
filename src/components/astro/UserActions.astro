@@ -4,12 +4,12 @@ import IconButton from "@components/astro/ui/IconButton.astro";
 import Button from "@components/astro/ui/Button.astro";
 ---
 
-<!-- User Actions -->
-<div class="flex items-center space-x-4">
+<div data-component="UserActions" class="flex items-center space-x-4">
   <div class="hidden lg:flex items-center space-x-2">
     <Button text="Iniciar Sesión" />
     <Button text="Registrate" variant="secondary" />
   </div>
+
   <div class="flex items-center md:space-x-3 text-slate-800">
     <IconButton className="notifications-btn max-sm:hidden">
       <Bell class="h-6 w-6" />

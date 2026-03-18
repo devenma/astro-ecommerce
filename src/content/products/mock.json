@@ -11,7 +11,11 @@
     "sizes": ["S", "M", "L"],
     "colors": ["#000000", "#f5f5dc", "#3b82f6"],
     "currency": "ARS",
-    "image": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/whatsapp_image_2026-03-12_at_16.18.56_1773405791.jpeg?itok=XgUXr2hL"
+    "images": [
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/whatsapp_image_2026-03-12_at_16.18.56_1773405791.jpeg?itok=XgUXr2hL",
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/whatsapp_image_2026-03-12_at_16.18.56_1773405791.jpeg?itok=XgUXr2hL",
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/whatsapp_image_2026-03-12_at_16.18.56_1773405791.jpeg?itok=XgUXr2hL"
+    ]
   },
   {
     "id": 2,
@@ -25,7 +29,9 @@
     "sizes": ["28", "30", "36"],
     "colors": ["#000000", "#9ca3af"],
     "currency": "ARS",
-    "image": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/turin_1773414110.jpeg?itok=YS4WKUVA"
+    "images": [
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/turin_1773414110.jpeg?itok=YS4WKUVA"
+    ]
   },
   {
     "id": 3,
@@ -39,7 +45,9 @@
     "sizes": ["U"],
     "colors": ["#dc2626", "#000000"],
     "currency": "ARS",
-    "image": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/camisa_juanita_1773407996.jpeg?itok=7oNvmjk9"
+    "images": [
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/camisa_juanita_1773407996.jpeg?itok=7oNvmjk9"
+    ]
   },
   {
     "id": 4,
@@ -53,6 +61,8 @@
     "sizes": ["XS", "S", "M", "L"],
     "colors": ["#000000", "#f5f5dc"],
     "currency": "ARS",
-    "image": "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/sweater_santiago_1773406855.jpeg?itok=6dE0rTty"
+    "images": [
+      "https://www.distritomoda.com.ar/sites/default/files/styles/producto_interior/public/imagenes/sweater_santiago_1773406855.jpeg?itok=6dE0rTty"
+    ]
   }
 ]

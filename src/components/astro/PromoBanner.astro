@@ -2,12 +2,10 @@
 import Logo from "@components/astro/ui/Logo.astro";
 ---
 
-<!-- BEGIN: PromoBanners -->
-<section class="py-12 bg-gray-50">
+<section data-component="PromoBanner" class="py-12 bg-gray-50">
   <div class="container max-w-7xl mx-auto px-4">
     <h4 class="text-xl font-bold mb-6 text-gray-800">Novedades</h4>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Banner 1: Rebajados -->
       <div
         class="bg-[#fdf3f3] p-6 rounded-lg border border-pink-100 flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
       >
@@ -17,14 +15,14 @@ import Logo from "@components/astro/ui/Logo.astro";
         </p>
         <p class="mt-4 text-primary font-medium">Montos Mínimos Rebajados</p>
       </div>
-      <!-- Banner 2: FW26 -->
+
       <div
         class="bg-[#e2e8df] p-6 rounded-lg flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
       >
         <h5 class="text-5xl font-black italic mb-2">FW'26</h5>
         <p class="uppercase font-bold tracking-tight">OTOÑO/INVIERNO</p>
       </div>
-      <!-- Banner 3: Precios Bajos -->
+
       <div
         class="relative overflow-hidden bg-white p-6 rounded-lg border-2 border-primary/20 flex flex-col items-center justify-center text-center group cursor-pointer hover:shadow-md transition-shadow"
       >
@@ -48,4 +46,3 @@ import Logo from "@components/astro/ui/Logo.astro";
     </div>
   </div>
 </section>
-<!-- END: PromoBanners -->

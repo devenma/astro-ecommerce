@@ -1,28 +1,15 @@
 ---
+import Navigation from "@content/links/Navigation.json";
 const currentPath = Astro.url.pathname.slice(1) || "home";
-
-const links = [
-  { name: "Inicio", href: "/", key: "home" },
-  { name: "Ingresos", href: "/ingresos", key: "ingresos" },
-  { name: "Ofertas", href: "/ofertas", key: "ofertas" },
-  { name: "Mujer", href: "/mujer", key: "mujer" },
-  { name: "Hombre", href: "/hombre", key: "hombre" },
-  { name: "Infantil", href: "/infantil", key: "infantil" },
-  { name: "Accesorios", href: "/accesorios", key: "accesorios" },
-  { name: "Calzados", href: "/calzados", key: "calzados" },
-  { name: "Tiendas", href: "/tiendas", key: "tiendas" },
-  { name: "Tendencias", href: "/tendencias", key: "tendencias" },
-];
 ---
 
-<!-- Main Navigation -->
-<nav class="bg-slate-200 hidden sm:block">
+<nav data-component="NavigationBar" class="bg-slate-200 hidden sm:block">
   <div class="container mx-auto px-4 pt-3">
     <ul
       class="flex items-center justify-center space-x-6 overflow-x-auto no-scrollbar text-sm font-medium uppercase text-gray-600 whitespace-nowrap"
     >
       {
-        links.map((link) => (
+        Navigation.map((link) => (
           <li
             class:list={[
               "pb-3",

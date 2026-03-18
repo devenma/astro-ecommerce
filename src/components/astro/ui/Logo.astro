@@ -1,17 +1,26 @@
 ---
 import { Image } from "astro:assets";
 
+type Props = {
+  size?: "small" | "medium" | "large";
+  text?: string;
+  className?: string;
+  textClass?: string;
+  loading?: "eager" | "lazy";
+};
+
 const {
   size = "small",
   text = "",
   className = "",
   textClass = "",
-} = Astro.props;
+  loading = "eager",
+}: Props = Astro.props;
 const heights = { small: 30, medium: 40, large: 60 };
 ---
 
-<!-- Logo -->
 <a
+  data-component-ui="Logo"
   href="/"
   aria-label="home link"
   class:list={[className, "dm-logo flex items-center justify-center"]}
@@ -21,7 +30,7 @@ const heights = { small: 30, medium: 40, large: 60 };
     height={heights[size]}
     width={heights[size] * 3.75}
     alt="page logo"
-    loading="eager"
+    loading={loading}
   />
   {
     text && (
