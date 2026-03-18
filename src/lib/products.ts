@@ -48,6 +48,6 @@ function normalizeProduct(raw: DrupalProduct): Product {
     sizes: raw.attributes.field_sizes ?? null,
     colors: raw.attributes.field_colors ?? null,
     currency: raw.attributes.field_price?.currency_code,
-    image: raw.attributes.field_image?.data ?? null,
+    images: raw.attributes.field_image?.data ?? null,
   };
 }
